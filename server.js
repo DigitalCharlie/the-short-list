@@ -13,7 +13,7 @@ app.use(express.json())
 
 // USE THE ROUTES
 app.use(express.static(path.join(__dirname, 'build')))  // serve static file
-app.use('/tasks', taskController)
+app.use('/api', taskController)
 
 app.get('.*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

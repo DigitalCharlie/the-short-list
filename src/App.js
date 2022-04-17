@@ -15,7 +15,7 @@ function App() {
   const entry = useRef(null);
   const status = useRef(null);
 
-  const URL = 'http://localhost:3000/tasks'
+  const URL = 'http://localhost:3000/api'
 
   useEffect(() => {
     (async () => {
