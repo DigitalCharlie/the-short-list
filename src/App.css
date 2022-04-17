@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+:root {
+  --bg-color: #f3f5fc;
+  --accent-color: rgb(23, 5, 58);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin:0;
+  background-color: var(--bg-color);
+  font-family: "Open Sans", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.layout {
+  display:flex;
+  height:95vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  width: 600px;
+  max-width:95%;
+  background-color: white;
+  border-radius:9px;
+  border: 1px solid #e7ecfb;
+  box-shadow: 0 0 30px rgba(211, 220, 248, 0.3);
+  padding: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  margin:0 0 10px;
+  font-size:2.5em;
+}
+
+label, .deleteLinks {
+  color:#3f455f;
+  font-size:.85em;
+}
+
+input {
+  padding:10px 5px;
+  margin-right:5px;
+  border:none;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  width:100%;
+}
+
+input[type="text"] {
+  font-size:1em;
+  padding-left:10px;
+}
+
+
+input:focus-visible {
+  outline-color:var(--accent-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color:white;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  padding:10px 30px;
+  cursor:pointer;
+  transition: .25s;
+  text-transform: uppercase;
+  font-weight: bold;
+  height:40px;
+  margin-right:15px;
+}
+
+button:hover {
+  background-color: white;
+  color:var(--accent-color);
+}
+
+form > div {
+  display:flex;
+}
+
+.task {
+  display:flex;
+  justify-content: space-between;
+  margin:5px 0;
+}
+
+.task:nth-child(odd) {
+  background-color: var(--bg-color) ;
+}
+
+.task {
+  cursor:pointer;
+  align-items: center;
+}
+
+.task-title {
+  width:100%;
+  padding: 0 0 5px 15px;
+  transition:.25s;
+}
+
+.task-title:hover {
+  color:rgb(114, 114, 114);
+}
+
+
+.line-through {
+  text-decoration: line-through;
+  text-decoration-thickness:3px;
+}
+
+.checkbox {
+  font-size:2.5em;
+}
+
+.entry-text {
+  position:relative;
+  bottom:5px;
+  font-size:1.1em;
+}
+
+.deleteLinks {
+  display:flex;
+  justify-content: space-around;
+  margin:30px 0 0;
+}
+
+.deleteLinks > div {
+  cursor:pointer;
+}
+
+.deleteLinks > div:hover {
+  color: var(--accent-color)
 }
