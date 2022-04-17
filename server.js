@@ -10,9 +10,9 @@ const path = require('path')
 
 // MIDDLEWARE
 app.use(express.json())
+app.use(express.static(path.join(__dirname, 'build')))  // serve static file
 
 // USE THE ROUTES
-app.use(express.static(path.join(__dirname, 'build')))  // serve static file
 app.use('/api', taskController)
 
 app.get('.*', (req, res) => {

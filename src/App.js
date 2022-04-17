@@ -132,6 +132,7 @@ function App() {
       <div className="container">
         <div className="section" id="to-do">
           <h2>To Do</h2>
+            { !tasks['TO-DO'] ? <p>Use the field above to enter your first to do</p>: '' }
           <div className="list">
             {
               tasks['TO-DO'] ?
@@ -147,8 +148,10 @@ function App() {
             }
           </div>
         </div>
+        <hr />
         <div className="section" id="done">
-          <h2>Done</h2>
+          <h2>Done 🎉</h2>
+          { !tasks['COMPLETED'] ? <p>You can do it! Finish that first task!</p>: '' }
           <div className="list completed-list">
             {tasks['COMPLETED']
                 ? tasks['COMPLETED'].map((item, i) => {
