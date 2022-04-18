@@ -15,7 +15,7 @@ function App() {
   const entry = useRef(null);
   const status = useRef(null);
 
-  const URL = 'http://localhost:3001/todo'
+  const URL = 'https://the-short-list.herokuapp.com/todo'
 
   useEffect(() => {
     (async () => {

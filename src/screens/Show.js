@@ -7,7 +7,7 @@ export default function Show() {
     const [showData, setShowData] = useState({});
     const navigate = useNavigate();
 
-    const URL = 'http://localhost:3001/todo'
+    const URL = 'https://the-short-list.herokuapp.com/todo'
     
     useEffect(() => {
         (async () => {
