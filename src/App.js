@@ -15,7 +15,7 @@ function App() {
   const entry = useRef(null);
   const status = useRef(null);
 
-  const URL = 'http://localhost:3000/api'
+  const URL = 'http://localhost:3001/todo'
 
   useEffect(() => {
     (async () => {
@@ -78,12 +78,18 @@ function App() {
       }
       let confirm = window.confirm('Are you sure you want to delete EVERYTHING on the short list?')
 
-      if (confirm === true) {
-        toDelete.forEach((i) => {
-          axios.delete(`${URL}/${i}`)
-          setDidDelete(!didDelete)
-        })
-      }
+      // if (confirm === true) {
+      //   toDelete.forEach((i) => {
+      //     axios.delete(`${URL}/${i}`)
+      //     setDidDelete(!didDelete)
+      //   })
+      // }
+      if (confirm === true) { 
+        const promises = toDelete.map((id) => axios.delete(`${URL}/${id}`))
+        Promise.all([...promises])
+        .then(setDidDelete(!didDelete))
+      } 
+
 
       if (confirm === false) {
         return ''
@@ -104,12 +110,18 @@ function App() {
         toDelete.push(i._id)
       })
       let confirm = window.confirm('Are you sure you want to clear you completed tasks?')
-      if (confirm === true) {
-        toDelete.forEach((i) => {
-          axios.delete(`${URL}/${i}`)
-          setDidDelete(!didDelete)
-        })
-      }
+      // if (confirm === true) {
+      //   toDelete.forEach((i) => {
+      //     axios.delete(`${URL}/${i}`)
+      //     setDidDelete(!didDelete)
+      //   })
+      // }
+      if (confirm === true) { 
+        const promises = toDelete.map((id) => axios.delete(`${URL}/${id}`))
+        Promise.all([...promises])
+        .then(setDidDelete(!didDelete))
+      } 
+
       if (confirm === false) {
         return ''
       }
@@ -124,7 +136,7 @@ function App() {
         <form className="form">
           <label>New item</label>
           <div>
-            <input type="text" ref={entry}/>
+            <input type="text" ref={entry} required/>
             <button className="submit" onClick={handleSubmit}>Add</button>
           </div>
         </form>
@@ -132,7 +144,7 @@ function App() {
       <div className="container">
         <div className="section" id="to-do">
           <h2>To Do</h2>
-            { !tasks['TO-DO'] ? <p>Use the field above to enter your first to do</p>: '' }
+            { !tasks['TO-DO'] ? <p className="prompt">Use the field above to enter your first to do</p>: '' }
           <div className="list">
             {
               tasks['TO-DO'] ?
@@ -151,7 +163,7 @@ function App() {
         <hr />
         <div className="section" id="done">
           <h2>Done 🎉</h2>
-          { !tasks['COMPLETED'] ? <p>You can do it! Finish that first task!</p>: '' }
+          { !tasks['COMPLETED'] ? <p className="prompt">You can do it! Finish that first task!</p>: '' }
           <div className="list completed-list">
             {tasks['COMPLETED']
                 ? tasks['COMPLETED'].map((item, i) => {

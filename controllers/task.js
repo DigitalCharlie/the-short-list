@@ -13,7 +13,7 @@ router.get("/", (req,res) => {
     })
 })
 
-// TABLE ROUTE!
+// TABLE MAKING ROUTE
 router.get('/table', (req,res) => {
     Task.find({}, (err, foundTasks) => {
         if(!err) {
@@ -32,7 +32,7 @@ router.get('/table', (req,res) => {
 router.delete('/:id', (req,res)=> {
     Task.findByIdAndDelete(req.params.id, (err) => {
         if(!err) {
-            res.status(200).json({message: "That tasks has been deleted"})
+            res.status(200).json({message: "That task has been deleted"})
         } else {
             res.status(400).json(err)
         }
@@ -51,7 +51,6 @@ router.put('/:id', (req,res) => {
         }
     })
 })
-
 
 // CREATE
 router.post("/", (req,res) => {

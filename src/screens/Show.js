@@ -7,12 +7,13 @@ export default function Show() {
     const [showData, setShowData] = useState({});
     const navigate = useNavigate();
 
+    const URL = 'http://localhost:3001/todo'
     
     useEffect(() => {
         (async () => {
           try {
             // Assign our axios response to a variable. Use the id from params to get our speciifc task
-            const { data } = await axios.get(`http://localhost:3000/tasks/${id}`);
+            const { data } = await axios.get(`${URL}/${id}`);
             // Set the showData state to the data we recieved from our server.
             setShowData(data);
           } catch (err) {
@@ -23,7 +24,7 @@ export default function Show() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:3000/tasks/${id}`)
+            await axios.delete(`${URL}/${id}`)
         } catch (err) {
             console.log(err)
         } finally {

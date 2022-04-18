@@ -29,6 +29,8 @@ main {
   border: 1px solid #e7ecfb;
   box-shadow: 0 0 30px rgba(211, 220, 248, 0.3);
   padding: 30px;
+  max-height: 85vh;
+  overflow: auto;
 }
 
 h1 {
@@ -36,8 +38,11 @@ h1 {
   font-size:2.5em;
 }
 
-label, .deleteLinks {
+label, .deleteLinks, .prompt {
   color:#3f455f;
+}
+
+label, .deleteLinks {
   font-size:.85em;
 }
 
